@@ -12,6 +12,7 @@ class graphPage extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(height : ScreenHeight*0.05),
+          Container(child: Text("내 시간",style: TextStyle(fontSize: 30),),height: ScreenHeight*0.1),
           Expanded(
             child: Container(
               padding: EdgeInsets.all(20),
