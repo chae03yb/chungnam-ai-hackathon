@@ -29,8 +29,8 @@ class bar extends StatefulWidget {
 class _barState extends State<bar> {
 
   List<Widget> _selection = [
-    rankingPage(),
     graphPage(),
+    rankingPage(),
   ];
   int _selected = 0;
 
@@ -46,15 +46,24 @@ class _barState extends State<bar> {
       body: Container(
         child: _selection[_selected],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(icon: Image.asset("assets/graphimg.png"),label: "Graph"),
-          BottomNavigationBarItem(icon: Image.asset("assets/ranking.png"),label: "Ranking"),
-        ],
-        onTap: _tapEvent,
-        selectedItemColor: Colors.lightGreenAccent,
-        unselectedItemColor: Colors.grey,
-      ),
+      bottomNavigationBar: Theme(
+        data :ThemeData(
+          splashColor: Colors.transparent,
+        ),
+        child: BottomNavigationBar(
+            backgroundColor: Colors.white,
+            items: [
+              BottomNavigationBarItem(icon: Image.asset("assets/dd.png",width: 50,height: 50,),label: "Graph"),
+              BottomNavigationBarItem(icon: Image.asset("assets/rankingImg.png",width: 50,height: 50,),label: "Ranking"),
+            ],
+
+            onTap: _tapEvent,
+            selectedItemColor: Colors.black,
+            unselectedItemColor: Colors.grey[650],
+            currentIndex: _selected,
+            type: BottomNavigationBarType.fixed
+        ),
+      )
     );
   }
 }
